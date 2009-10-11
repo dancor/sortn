@@ -1,5 +1,8 @@
-module Main where
+import Data.List
+import Data.Ord
+import FUtil
+import System.Environment
 
-main :: IO ()
 main = do
-  putStrLn "hi"
+  [n] <- getArgs
+  interactL . sortBy . comparing $ drop (read n - 1) . words
